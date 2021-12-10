@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+.button-start-react img {
+    padding-left: 7px;
+}
+
+body {
+    font-family: 'Roboto';
+
+}
+
+.lobby {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-start-react {
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    width: 345px;
+    border: 3px solid #FFEF61;
+    border-radius: 12px;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.header {
+    margin: 27px 0 0 32px;
+
+}
+
+.card-container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 575px;
+    width: 392px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+}
+
+.wich-card {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 5%;
+    margin: 13px 13px 0 0;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.card .question strong {
+    font-size: 28px;
+    line-height: 33px;
+}
+
+.question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+}
+
+.turn-card {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 17px 17px 0;
+}
+
+.card-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 10px;
+    line-height: 12px;
+    margin-bottom: 17px;
+}
+
+.button {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    line-height: 12px;
+    height: 48px;
+    width: 65px;
+    border-radius: 12px;
+}
+
+.nao-lembrei {
+    border: 3px solid #F74848;
+}
+
+.aprendi {
+    border: 3px solid #000000;
+}
+
+.lembrei-com-esforco {
+    border: 3px solid #62DB38;
+}
+
+.zap {
+    border: 3px solid #FFEF61;
+}
