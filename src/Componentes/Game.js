@@ -1,3 +1,4 @@
+import { useState } from 'react';
 export default function Game() {
     const deck = [
         { question: "O que é JSX?", answer: "Uma extensão de linguagem do JavaScript" },
@@ -9,43 +10,78 @@ export default function Game() {
         { question: "Usamos props para __", answer: "passar diferentes informações para componentes " },
         { question: "Usamos estado (state) para __", answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" },
     ]
-
+    const [Card, setCard] = useState('FrontFace')
     return (
         <div className="game">
             <div className="header">
                 <img src="./assets/logo-mini.png" alt="" />
             </div>
             <div className="card-container">
-                <div className="card">
-                    <div className="wich-card">
-                        {`1/${deck.length}`}
-                    </div>
-                    <div className="question">
-                        <strong>{deck[0].question}</strong>
-                    </div>
-                    <div className="card-buttons">
-                        <div className="button aprendi">
-                            Aprendi <br /> agora
-                        </div>
-                        <div className="button nao-lembrei">
-                            Não <br /> lembrei
-                        </div>
-                        <div className="button lembrei-com-esforco">
-                            Lembrei <br /> com <br /> esforço
-                        </div>
-                        <div className="button zap">
-                            <strong>Zap!</strong>
-                        </div>
-                    </div>
-
-
-                </div>
+                {Card === "FrontFace" ? <CardFrontFace setCard={setCard} deck={deck} /> : <CardBackFace deck={deck} />}
             </div>
-        </div>
+        </div >
 
     )
-    // <div className="turn-card">
-    // <img src="./assets/turn.png" alt="" />
-    //</div>
+
+}
+
+
+function CardBackFace({ deck }) {
+    return (
+        <div className="card">
+            <div className="header-backface">
+                <strong>{deck[0].question}</strong>
+                <div className="counting-card">
+                    {`1/${deck.length}`}
+                </div>
+            </div>
+            <div className="answer">
+                {deck[0].answer}
+            </div>
+            <CardButtons />
+        </div>
+    )
+}
+
+
+function CardFrontFace({ setCard, deck }) {
+    return (
+        <div className="card">
+            {`1/${deck.length}`}
+            <div className="question">
+                <strong>{deck[0].question}</strong>
+            </div>
+            <TurnCard setCard={setCard} />
+        </div>
+    )
+}
+
+
+
+function TurnCard({ setCard }) {
+    return (
+        <div className="turn-card">
+            <img src="./assets/turn.png" alt="" onClick={() => setCard('BackFace')} />
+        </div>
+    )
+}
+
+function CardButtons() {
+    return (
+        <div className="card-buttons">
+            <div className="button aprendi">
+                Aprendi <br /> agora
+            </div>
+            <div className="button nao-lembrei">
+                Não <br /> lembrei
+            </div>
+            <div className="button lembrei-com-esforco">
+                Lembrei <br /> com <br /> esforço
+            </div>
+            <div className="button zap">
+                <strong>Zap!</strong>
+            </div>
+        </div>
+    )
 
 }

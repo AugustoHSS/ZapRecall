@@ -1,5 +1,5 @@
-import Lobby from "./Componentes/Lobby";
-import Game from "./Componentes/Game";
+import Lobby from "./Lobby";
+import Game from "./Game";
 import { useState } from 'react';
 
 export default function App() {
