@@ -1,11 +1,8 @@
-import react from "react";
-
-
-export default function Lobby({ setPaginaAtual }) {
+export default function Lobby({ setCurrentScren }) {
     return (
         <div className="lobby">
             <img src="./assets/logo.png" alt="" />
-            <div className="button-start-react" onClick={() => setPaginaAtual('game')}>
+            <div className="button-start-react" onClick={() => setCurrentScren('game')}>
                 <strong>Praticar React</strong>
                 <img src="./assets/next.png" alt="" />
             </div>

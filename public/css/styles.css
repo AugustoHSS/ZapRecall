@@ -124,6 +124,32 @@ body {
     border-radius: 12px;
 }
 
+.end-game {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emote,
+.end-game strong {
+    font-size: 36px;
+    line-height: 42px;
+    margin-left: 10px;
+}
+
+.title {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+}
+
 .nao-lembrei {
     border: 3px solid #F74848;
 }

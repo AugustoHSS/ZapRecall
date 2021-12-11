@@ -3,11 +3,11 @@ import Game from "./Game";
 import { useState } from 'react';
 
 export default function App() {
-    const [paginaAtual, setPaginaAtual] = useState('lobby')
+    const [currentScreen, setCurrentScren] = useState('lobby')
 
     return (
         <>
-            {paginaAtual === "lobby" ? <Lobby setPaginaAtual={setPaginaAtual} /> : <Game />}
+            {currentScreen === "lobby" ? <Lobby setCurrentScren={setCurrentScren} /> : <Game />}
         </>
     )
 }
