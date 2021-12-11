@@ -132,10 +132,12 @@ body {
     flex-direction: column;
 }
 
-.emote,
 .end-game strong {
     font-size: 36px;
     line-height: 42px;
+}
+
+.title img {
     margin-left: 10px;
 }
 
