@@ -10,14 +10,17 @@ export default function Game() {
         { question: "Usamos props para __", answer: "passar diferentes informações para componentes " },
         { question: "Usamos estado (state) para __", answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" },
     ]
-    const [Card, setCard] = useState('FrontFace')
+    const [card, setCard] = useState('FrontFace');
+    const [deckPosition, setDeckPosition] = useState(0);
+
     return (
         <div className="game">
             <div className="header">
                 <img src="./assets/logo-mini.png" alt="" />
             </div>
             <div className="card-container">
-                {Card === "FrontFace" ? <CardFrontFace setCard={setCard} deck={deck} /> : <CardBackFace deck={deck} />}
+                {card === "FrontFace" ? <CardFrontFace setCard={setCard} deck={deck} deckPosition={deckPosition} /> :
+                    <CardBackFace deck={deck} setDeckPosition={setDeckPosition} deckPosition={deckPosition} setCard={setCard} />}
             </div>
         </div >
 
@@ -26,30 +29,75 @@ export default function Game() {
 }
 
 
-function CardBackFace({ deck }) {
+function CardBackFace({ deck, setDeckPosition, deckPosition, setCard }) {
+    const [escolha, setEscolha] = useState("")
     return (
-        <div className="card">
-            <div className="header-backface">
-                <strong>{deck[0].question}</strong>
-                <div className="counting-card">
-                    {`1/${deck.length}`}
-                </div>
-            </div>
-            <div className="answer">
-                {deck[0].answer}
-            </div>
-            <CardButtons />
+        <div className={"card " + escolha}>
+            <HeaderBackFace deck={deck} deckPosition={deckPosition} />
+            <Answer deck={deck} deckPosition={deckPosition} />
+            {escolha === "" ? <CardButtons setEscolha={setEscolha} /> :
+                <NextCard setDeckPosition={setDeckPosition} deckPosition={deckPosition} setEscolha={setEscolha} setCard={setCard} />}
         </div>
     )
 }
 
 
-function CardFrontFace({ setCard, deck }) {
+function CardButtons({ setEscolha }) {
+    return (
+        <div className="card-buttons">
+            <div className="button aprendi" onClick={() => setEscolha('aprendi')}>
+                Aprendi agora
+            </div>
+            <div className="button nao-lembrei" onClick={() => setEscolha('nao-lembrei')}>
+                Não lembrei
+            </div>
+            <div className="button lembrei-com-esforco" onClick={() => setEscolha('lembrei-com-esforco')}>
+                Lembrei com esforço
+            </div>
+            <div className="button zap" onClick={() => setEscolha('zap')}>
+                <strong>Zap!</strong>
+            </div>
+        </div>
+    )
+
+}
+
+function NextCard({ setDeckPosition, deckPosition, setEscolha, setCard }) {
+    return (
+        <div className="turn-card">
+            <img src="./assets/turn.png" alt="" onClick={() => { setDeckPosition(deckPosition + 1); setEscolha(""); setCard('FrontFace') }} />
+        </div>
+    )
+}
+
+function HeaderBackFace({ deck, deckPosition }) {
+    return (
+        <div className="header-backface">
+            <strong>{deck[deckPosition].question}</strong>
+            <div className="counting-card">
+                {`${deckPosition + 1}/${deck.length}`}
+            </div>
+        </div>
+    )
+}
+
+function Answer({ deck, deckPosition }) {
+    return (
+        <div className="answer">
+            {deck[deckPosition].answer}
+        </div>
+    )
+}
+
+
+
+
+function CardFrontFace({ setCard, deck, deckPosition }) {
     return (
         <div className="card">
-            {`1/${deck.length}`}
+            {`${deckPosition + 1}/${deck.length}`}
             <div className="question">
-                <strong>{deck[0].question}</strong>
+                <strong>{deck[deckPosition].question}</strong>
             </div>
             <TurnCard setCard={setCard} />
         </div>
@@ -64,24 +112,4 @@ function TurnCard({ setCard }) {
             <img src="./assets/turn.png" alt="" onClick={() => setCard('BackFace')} />
         </div>
     )
-}
-
-function CardButtons() {
-    return (
-        <div className="card-buttons">
-            <div className="button aprendi">
-                Aprendi <br /> agora
-            </div>
-            <div className="button nao-lembrei">
-                Não <br /> lembrei
-            </div>
-            <div className="button lembrei-com-esforco">
-                Lembrei <br /> com <br /> esforço
-            </div>
-            <div className="button zap">
-                <strong>Zap!</strong>
-            </div>
-        </div>
-    )
-
 }
