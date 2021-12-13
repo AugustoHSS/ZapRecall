@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.button-start-react img {
+.button-start img {
     padding-left: 7px;
 }
 
@@ -25,7 +25,7 @@ body {
     margin-bottom: 14%;
 }
 
-.lobby .button-start-react img {
+.lobby .button-start img {
     margin: 0;
 }
 
@@ -135,7 +135,7 @@ body {
 }
 
 .button-play-again,
-.button-start-react {
+.button-start {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,6 +145,7 @@ body {
     border-radius: 12px;
     font-size: 20px;
     line-height: 23px;
+    margin-bottom: 16px;
 }
 
 .title img {
@@ -160,6 +161,18 @@ body {
     font-size: 22px;
     line-height: 26px;
     text-align: center;
+}
+
+input {
+    width: 345px;
+    height: 49px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    padding-left: 16px;
+}
+
+.card-buttons p {
+    max-width: 45px;
 }
 
 .nao-lembrei {
