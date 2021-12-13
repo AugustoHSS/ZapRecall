@@ -7,6 +7,7 @@
 }
 
 body {
+
     font-family: 'Roboto';
 
 }
@@ -20,21 +21,16 @@ body {
     align-items: center;
 }
 
-.button-start-react {
-    margin-top: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 72px;
-    width: 345px;
-    border: 3px solid #FFEF61;
-    border-radius: 12px;
-    font-size: 20px;
-    line-height: 23px;
+.lobby img {
+    margin-bottom: 14%;
+}
+
+.lobby .button-start-react img {
+    margin: 0;
 }
 
 .header {
-    margin: 27px 0 0 32px;
+    margin: 2% 0 0 3%;
 
 }
 
@@ -46,6 +42,7 @@ body {
 }
 
 .card {
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,9 +129,22 @@ body {
     flex-direction: column;
 }
 
-.end-game strong {
+.end-game .title strong {
     font-size: 36px;
     line-height: 42px;
+}
+
+.button-play-again,
+.button-start-react {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    width: 345px;
+    border: 3px solid #FFEF61;
+    border-radius: 12px;
+    font-size: 20px;
+    line-height: 23px;
 }
 
 .title img {

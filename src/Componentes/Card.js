@@ -7,7 +7,7 @@ export default function Card({ deck, deckPosition, setDeckPosition, setIncorretA
 
 
     return (
-        <div className="card-container">
+        <div className="card-container" data-identifier="flashcard">
             {card === "FrontFace" ? <CardFrontFace setCard={setCard} deck={deck} deckPosition={deckPosition} /> :
                 <CardBackFace deck={deck} setDeckPosition={setDeckPosition} deckPosition={deckPosition} setCard={setCard} setIncorretAnswers={setIncorretAnswers} incorretAnswers={incorretAnswers} />}
         </div>
@@ -78,7 +78,7 @@ function Answer({ deck, deckPosition }) {
 function CardFrontFace({ setCard, deck, deckPosition }) {
     return (
         <div className="card">
-            {`${deckPosition + 1}/${deck.length}`}
+            <p data-identifier="counter">{`${deckPosition + 1}/${deck.length}`}</p>
             <div className="question">
                 <strong>{deck[deckPosition].question}</strong>
             </div>
@@ -89,7 +89,7 @@ function CardFrontFace({ setCard, deck, deckPosition }) {
 
 function TurnCard({ setCard }) {
     return (
-        <div className="turn-card">
+        <div className="turn-card" data-identifier="arrow">
             <img src={turn} alt="" onClick={() => setCard('BackFace')} />
         </div>
     )
