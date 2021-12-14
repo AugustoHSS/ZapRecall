@@ -31,7 +31,7 @@ function HeaderBackFace({ deck, deckPosition }) {
     return (
         <div className="header-backface">
             <strong>{deck[deckPosition].question}</strong>
-            <div className="counting-card">
+            <div className="counting-card" data-identifier="counter">
                 {`${deckPosition + 1}/${deck.length}`}
             </div>
         </div>
@@ -61,7 +61,7 @@ function CardButtons({ setChoice, setIncorretAnswers, incorretAnswers, numberOfZ
 
 function NextCard({ setDeckPosition, deckPosition, setChoice, setCard }) {
     return (
-        <div className="turn-card">
+        <div className="turn-card" data-identifier="arrow">
             <img src={turn} alt="" onClick={() => { setDeckPosition(deckPosition + 1); setChoice(""); setCard('FrontFace') }} />
         </div>
     )

@@ -4,8 +4,8 @@ export default function StartButton({ setCurrentScreen, inputValue }) {
 
 
     return (
-        <div className="button-start" onClick={inputValidation}>
-            <strong data-identifier="start-zap-recall">Praticar React</strong>
+        <div data-identifier="start-zap-recall" className="button-start" onClick={inputValidation}>
+            <strong>Praticar React</strong>
             <img src={next} alt="" />
         </div>
     )
